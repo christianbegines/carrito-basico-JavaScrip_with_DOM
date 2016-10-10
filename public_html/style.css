@@ -1,0 +1,14 @@
+.articulos{  
+    width:45%;  
+    clear:both;
+}
+.articulos_item{
+    display:inline-block;
+    border:1px solid red;
+}
+.articulo_item--texto{
+    text-align: center;
+}
+.articulo_carro{
+    
+}

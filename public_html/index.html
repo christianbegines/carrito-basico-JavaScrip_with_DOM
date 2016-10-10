@@ -9,8 +9,30 @@ and open the template in the editor.
         <title>TODO supply a title</title>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="style.css" type="text/css">
+        <script src="script.js"></script>
     </head>
     <body>
-        <div>TODO write content</div>
+        <div class="articulos">
+            <div class="articulos_item" id="articulo1" onclick="cargarEnCarro(this.id)">
+                <img src="http://store.hp.com/SpainStore/Html/Merch/Images/c04678594_209x189.jpg">
+                <p class="articulo_item--texto">Precio: 700</p>
+            </div>
+            <div class="articulos_item">
+                <img src="http://store.hp.com/SpainStore/Html/Merch/Images/c04678594_209x189.jpg">
+                <p class="articulo_item--texto">Precio: 300</p>
+            </div>
+            <div class="articulos_item">
+                <img src="http://store.hp.com/SpainStore/Html/Merch/Images/c04678594_209x189.jpg">
+                <p class="articulo_item--texto">Precio: 1000</p>
+            </div >
+            <div class="articulos_item">
+                <img src="http://store.hp.com/SpainStore/Html/Merch/Images/c04678594_209x189.jpg">
+                <p class="articulo_item--texto">Precio: 350</p>
+            </div>
+        </div>
+        <div class="articulo_carro">
+            Precio :
+        </div>
     </body>
 </html>
