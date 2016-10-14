@@ -6,8 +6,8 @@ function cargarEnCarro(elemento) {
     var precio = texto.toString().split(" ");
     var srcImagen = div.getElementsByTagName("img")[0].getAttribute("src");
     var img = document.createElement("img");
-    var botonRestar=document.createElement("button");
-    var botonBorrar=document.createElement("button");
+    var botonRestar = document.createElement("button");
+    var botonBorrar = document.createElement("button");
     img.setAttribute("src", srcImagen);
     var parrafoNuevo = document.createElement("p");
     var nodoTextoPrecio = document.createTextNode(texto);
@@ -15,20 +15,26 @@ function cargarEnCarro(elemento) {
     var nodoTextoBorrar = document.createTextNode("Borrar");
     var nodoTextoUnidad = document.createTextNode("Unidades:1");
     botonRestar.appendChild(nodoTextoRestar);
-    botonRestar.setAttribute("onclick","restar()");
+    botonRestar.setAttribute("onclick", "restar()");
     botonBorrar.appendChild(nodoTextoBorrar);
-    botonBorrar.setAttribute("onclick","borrar()");
-    //parrafoNuevo.appendChild(nodoTextoNuevo);
+    botonBorrar.setAttribute("onclick", "borrar()");
+  
     var br = document.createElement("br");
     var br2 = document.createElement("br");
     var br3 = document.createElement("br");
+    
     var inCart = document.getElementById("c" + div.id);
+
     if (inCart !== null) {
-        var unidades = parseInt(inCart.split(":")[1]);
+        //
+        var segundoHijoF = inCart.lastChild.previousSibling;
+        var tercerHijoF = segundoHijoF.previousSibling;
+        var textoUnidadRecogido = tercerHijoF.previousSibling;
+        
+        var unidades = parseInt(textoUnidadRecogido.nodeValue.split(":")[1]);
         unidades++;
-        var nodoUnidades = document.createTextNode("Unidades:"+unidades);
-        inCart.removeChild(inCart.lastChild);
-        inCart.appendChild(nodoUnidades);        
+        var nodoUnidades = document.createTextNode("Unidades:" + unidades);
+        inCart.replaceChild(nodoUnidades,textoUnidadRecogido);
     } else {
         var divArticulo = document.createElement("div");
         divArticulo.setAttribute("class", "articulo_carro");
@@ -41,9 +47,9 @@ function cargarEnCarro(elemento) {
         divArticulo.appendChild(br3);
         divArticulo.appendChild(botonRestar);
         divArticulo.appendChild(botonBorrar);
-        
-        
+
+
         document.getElementById("precios").appendChild(divArticulo);
     }
-    
+
 }
