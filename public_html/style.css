@@ -5,10 +5,25 @@
 .articulos_item{
     display:inline-block;
     border:1px solid red;
+ 
 }
 .articulo_item--texto{
     text-align: center;
 }
 .articulo_carro{
     display: inline-block;
+    animation-name: item-anim;
+       text-align: center;
+       margin-top: 20px;
+    animation-duration: 0.5s;
 }
+
+@keyframes item-anim{
+    from{opacity:0;transform:rotateZ(180deg)}
+    to{opacity:1;
+       transform:rotateZ(-180deg);
+    }
+
+}
+
+
