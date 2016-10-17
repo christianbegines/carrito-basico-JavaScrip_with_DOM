@@ -77,14 +77,22 @@ function borrarArticulo(nodo) {
 function restarArticulo(nodo){
         var segundoHijoF = nodo.parentNode.lastChild.previousSibling;
         var tercerHijoF = segundoHijoF.previousSibling;
-        var nodoPrecioAntes = tercerHijoF.previousSibling;
-        var quintoH = nodoPrecioAntes.previousSibling;
+        var nodoPrecioTAntes = tercerHijoF.previousSibling;
+        var quintoH = nodoPrecioTAntes.previousSibling;
         var textoUnidadRecogido = quintoH.previousSibling;
+        var nodoAnt=textoUnidadRecogido.previousSibling;
+        var nodoPrecioUnico = nodoAnt.previousSibling;
         var  unidades = parseInt(textoUnidadRecogido.nodeValue.split(":")[1]);
+        var precioUnico=parseInt(nodoPrecioUnico.nodeValue.split(" ")[1]);
+        var precioT=parseInt(nodoPrecioTAntes.nodeValue.split(":")[1]);
+        var precioNuevoTotal= precioT-precioUnico;
+        
         if(unidades>1){
             unidades--;
             var nodoUnidadesRestado=document.createTextNode("Unidades:"+unidades);
+            var nodoPrecioFinal=document.createTextNode("PrecioTotal:"+precioNuevoTotal);
             nodo.parentNode.replaceChild(nodoUnidadesRestado,textoUnidadRecogido);
+            nodo.parentNode.replaceChild(nodoPrecioFinal,nodoPrecioTAntes);
         }else{
             borrarArticulo(nodo);
         }
